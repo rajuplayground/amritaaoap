@@ -99,7 +99,7 @@ const SuperHeader = () => {
                           <Menu.Item key={item.name}>
                             {({ active }) => (
                               <a
-                                href={item.href}
+                                href={`/${item.href}`}
                                 className={classNames(
                                   active ? "bg-pink-100" : "",
                                   "block px-4 py-2 text-sm text-gray-700"
@@ -135,14 +135,14 @@ const SuperHeader = () => {
                 <Disclosure.Button
                   key={item.name}
                   as="a"
-                  href={item.href}
+                  href={`/${item.href}`}
                   className={classNames(
-                    item.current
+                    item.href === pathname
                       ? "bg-pink-900 text-white"
                       : "text-white hover:bg-pink-700 hover:text-pink-50",
                     "block rounded-md px-3 py-2 text-base font-medium"
                   )}
-                  aria-current={item.current ? "page" : undefined}
+                  aria-current={item.href === pathname ? "page" : undefined}
                 >
                   {item.name}
                 </Disclosure.Button>
